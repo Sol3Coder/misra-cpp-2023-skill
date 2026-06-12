@@ -6,12 +6,6 @@ This repository contains a general-purpose AI agent skill for MISRA C++:2023-ori
 
 This skill was created by GPT-5.5 with xhigh reasoning effort.
 
-## Why There Is No `agents/openai.yaml`
-
-The skill is intended to be portable across agent runtimes. It keeps the common skill entry point, references, and scripts, but does not include OpenAI/Codex-specific UI metadata such as `agents/openai.yaml`.
-
-The `.agents/skills/misra-cpp-2023/` path is only the local repository layout used while authoring. Consumers can copy the `misra-cpp-2023` folder into the skill directory used by their agent runtime.
-
 ## Contents
 
 - `.agents/skills/misra-cpp-2023/SKILL.md` - generic skill entry point.
@@ -22,12 +16,12 @@ The `.agents/skills/misra-cpp-2023/` path is only the local repository layout us
 
 ## Local Source Material
 
-The authoring workspace may contain licensed local materials under `docs/source-material/`, including:
+This repository does not include the MISRA C++:2023 PDF or the converted full-text extraction. To regenerate the local rule index or consult full wording, place your licensed local materials under `docs/source-material/`:
 
 - `MISRA-CPP-2023_2.pdf`
 - `misra-cpp-2023.txt`
 
-That directory is intentionally ignored by git and is not published in this repository. The public study notes live at `docs/misra-cpp-2023-study-notes.md`.
+That directory is intentionally ignored by git and is not published. The public study notes live at `docs/misra-cpp-2023-study-notes.md`.
 
 ## Scanner
 

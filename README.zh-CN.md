@@ -6,12 +6,6 @@
 
 本 skill 由 GPT-5.5 在 xhigh reasoning effort 下创建。
 
-## 为什么没有 `agents/openai.yaml`
-
-这个 skill 的目标是跨 agent 运行时通用，而不是绑定 OpenAI 或 Codex。因此仓库只保留通用的 `SKILL.md`、参考资料和脚本，不包含 `agents/openai.yaml` 这类 OpenAI/Codex 专属 UI 元数据。
-
-`.agents/skills/misra-cpp-2023/` 只是创建时使用的本地仓库布局。使用时可以把 `misra-cpp-2023` 文件夹复制到你的 agent 运行时所使用的 skill 目录。
-
 ## 内容
 
 - `.agents/skills/misra-cpp-2023/SKILL.md` - 通用 skill 入口。
@@ -22,7 +16,7 @@
 
 ## 本地源材料
 
-创建工作区可以在 `docs/source-material/` 下保存已授权的本地材料，例如：
+本仓库不包含 MISRA C++:2023 PDF，也不包含转换后的全文文本。如需重新生成本地规则索引或查看完整规则措辞，请把你已授权的本地材料放到 `docs/source-material/`：
 
 - `MISRA-CPP-2023_2.pdf`
 - `misra-cpp-2023.txt`
