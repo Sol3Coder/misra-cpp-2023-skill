@@ -18,6 +18,7 @@ The `.agents/skills/misra-cpp-2023/` path is only the local repository layout us
 - `.agents/skills/misra-cpp-2023/references/` - review workflow, coding guidance, tooling notes, and compact rule index.
 - `.agents/skills/misra-cpp-2023/scripts/scan_cpp_misra.py` - heuristic C++ safety scanner.
 - `.agents/skills/misra-cpp-2023/scripts/extract_rule_index.py` - local rule-index generator.
+- `docs/misra-cpp-2023-study-notes.md` - public study notes and operating model, without standard text reproduction.
 
 ## Local Source Material
 
@@ -25,9 +26,8 @@ The authoring workspace may contain licensed local materials under `docs/source-
 
 - `MISRA-CPP-2023_2.pdf`
 - `misra-cpp-2023.txt`
-- `misra-cpp-2023-study-notes.md`
 
-That directory is intentionally ignored by git and is not published in this repository.
+That directory is intentionally ignored by git and is not published in this repository. The public study notes live at `docs/misra-cpp-2023-study-notes.md`.
 
 ## Scanner
 
@@ -39,7 +39,7 @@ The scanner is a review aid, not a certified MISRA checker.
 
 ## Copyright Boundary
 
-This repository intentionally excludes the MISRA PDF, extracted full text, and local study notes. Use the licensed MISRA C++:2023 document locally for full wording, examples, rationale, and exceptions.
+This repository intentionally excludes the MISRA PDF and extracted full text. Use the licensed MISRA C++:2023 document locally for full wording, examples, rationale, and exceptions.
 
 ## Validation
 
