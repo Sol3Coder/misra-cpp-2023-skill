@@ -16,7 +16,9 @@ This skill was created by GPT-5.5 with xhigh reasoning effort.
 
 ## Local Source Material
 
-This repository does not include the MISRA C++:2023 PDF or the converted full-text extraction. To regenerate the local rule index or consult full wording, place your licensed local materials under `docs/source-material/`:
+The compact rule index in this repository was generated from text converted locally from a licensed MISRA C++:2023 PDF. Because of copyright restrictions, this repository does not include the original PDF or the converted full-text extraction.
+
+To regenerate the local rule index or consult full wording, place your licensed local materials under `docs/source-material/`:
 
 - `MISRA-CPP-2023_2.pdf`
 - `misra-cpp-2023.txt`
