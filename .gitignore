@@ -1,0 +1,21 @@
+# Licensed / restricted source material
+MISRA-CPP-2023_2.pdf
+work/misra-cpp-2023.txt
+
+# Local Poppler distribution and archive
+poppler-26.02.0/
+Release-26.02.0-0.zip
+
+# Locally installed helper skills, not part of this repository
+.agents/skills/skill-creator/
+skills-lock.json
+
+# Generated caches
+__pycache__/
+*.py[cod]
+
+# Local/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

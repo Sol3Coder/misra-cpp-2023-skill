@@ -1,0 +1,4 @@
+interface:
+  display_name: "MISRA C++:2023"
+  short_description: "Review and write safety-focused C++"
+  default_prompt: "Use $misra-cpp-2023 to review this C++ project for MISRA C++:2023 and safety risks."
