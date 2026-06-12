@@ -1,6 +1,10 @@
 # Licensed / restricted source material
 MISRA-CPP-2023_2.pdf
-work/misra-cpp-2023.txt
+docs/source-material/
+work/
+
+# Local planning notes generated during authoring
+docs/superpowers/
 
 # Local Poppler distribution and archive
 poppler-26.02.0/

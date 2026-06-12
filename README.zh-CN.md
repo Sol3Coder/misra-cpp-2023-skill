@@ -18,8 +18,16 @@
 - `.agents/skills/misra-cpp-2023/references/` - 评审流程、编码指导、工具说明和轻量规则索引。
 - `.agents/skills/misra-cpp-2023/scripts/scan_cpp_misra.py` - 启发式 C++ 安全扫描器。
 - `.agents/skills/misra-cpp-2023/scripts/extract_rule_index.py` - 本地规则索引生成脚本。
-- `docs/superpowers/` - 设计和实施说明。
-- `work/misra-cpp-2023-study-notes.md` - 本地学习摘要。
+
+## 本地源材料
+
+创建工作区可以在 `docs/source-material/` 下保存已授权的本地材料，例如：
+
+- `MISRA-CPP-2023_2.pdf`
+- `misra-cpp-2023.txt`
+- `misra-cpp-2023-study-notes.md`
+
+该目录已被 git 忽略，不会发布到本仓库。
 
 ## 扫描器
 
@@ -31,7 +39,7 @@ python .agents\skills\misra-cpp-2023\scripts\scan_cpp_misra.py <项目或文件>
 
 ## 版权边界
 
-本仓库刻意排除了 MISRA PDF 和提取出的全文文本。完整规则措辞、示例、依据和例外应在本地使用已授权的 MISRA C++:2023 文档查看。
+本仓库刻意排除了 MISRA PDF、提取出的全文文本和本地学习笔记。完整规则措辞、示例、依据和例外应在本地使用已授权的 MISRA C++:2023 文档查看。
 
 ## 验证
 
