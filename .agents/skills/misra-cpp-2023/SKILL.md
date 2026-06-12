@@ -33,7 +33,7 @@ python .agents\skills\misra-cpp-2023\scripts\scan_cpp_misra.py <project-or-file>
 ## Enforcement
 
 - For generated or edited C++ code, prefer C++17, deterministic control flow, RAII, fixed ownership, bounded resources, explicit initialization, and narrow interfaces.
-- Avoid dynamic allocation, raw owning pointers, C-style casts, `reinterpret_cast`, `const_cast`, unsafe C library calls, recursion, global mutable state, function-like macros, inline assembly, `goto`, `setjmp`/`longjmp`, and unreviewed `volatile`.
+- Avoid dynamic allocation, raw owning pointers, C-style casts, `reinterpret_cast`, `const_cast` (to remove const or volatile qualification), unsafe C library calls, recursion, global mutable state, function-like macros, inline assembly, `goto`, `setjmp`/`longjmp`, `<csignal>`, and `volatile` (on locals, parameters, return types, or member functions).
 - If a project profile allows an otherwise risky feature, document that profile before using it.
 - Apply guidelines to preprocessed translation units; make command-line, compiler, and build-system macros visible to tools.
 - Review classes, fully instantiated templates, implicitly generated special member functions, and automatically generated code rather than only hand-written `.cpp` files.

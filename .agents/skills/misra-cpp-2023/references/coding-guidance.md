@@ -23,14 +23,15 @@ Avoid these unless the project safety profile explicitly permits them and a devi
 
 - Dynamic allocation in application logic.
 - Raw owning pointers.
-- C-style casts, `reinterpret_cast`, `const_cast`.
+- C-style casts, `reinterpret_cast` (except converting to `void*`/`char*`/`unsigned char*`/`std::byte*`, or to `std::uintptr_t`).
+- `const_cast` (only when removing const or volatile qualification; adding const/volatile is permitted).
 - Unsafe C string/memory/library functions.
 - Recursion.
 - Function-like macros.
 - Inline assembly.
-- `goto`, `setjmp`, `longjmp`.
+- `goto`, `setjmp`, `longjmp`, `<csignal>`.
 - Global mutable state.
-- Unreviewed `volatile`.
+- `volatile` on local variables, function parameters, function return types, member functions, or structured bindings.
 - Exceptions or RTTI when the project profile bans them.
 - Macro-controlled behavior that is not visible to analysis tools.
 - Reliance on compiler-specific, implementation-defined, unspecified, or conditionally supported behavior without documentation.
