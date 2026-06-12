@@ -31,11 +31,11 @@
 - Create: `F:\skills\misra\.agents\skills\misra-cpp-2023\SKILL.md`
 - Create: `F:\skills\misra\.agents\skills\misra-cpp-2023\references\*.md`
 - Create: `F:\skills\misra\.agents\skills\misra-cpp-2023\scripts\*.py`
-- Create: `F:\skills\misra\.agents\skills\misra-cpp-2023\agents\openai.yaml`
 
 - [ ] Create directories.
 - [ ] Write frontmatter with name `misra-cpp-2023`.
 - [ ] Include trigger wording for MISRA C++:2023, C++, safety-critical, embedded, automotive, review, compliance, and secure coding.
+- [ ] Do not add agent-runtime-specific UI metadata such as `agents/openai.yaml`.
 
 ### Task 3: Build Scanner Test First
 

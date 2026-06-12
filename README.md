@@ -1,10 +1,20 @@
-# MISRA C++:2023 Codex Skill
+# MISRA C++:2023 Agent Skill
 
-Local Codex skill for MISRA C++:2023-oriented C++ review, new-code guidance, and heuristic safety gate checks.
+English | [中文](README.zh-CN.md)
+
+This repository contains a general-purpose AI agent skill for MISRA C++:2023-oriented C++ review, new-code guidance, and heuristic safety gate checks.
+
+This skill was created by GPT-5.5 with xhigh reasoning effort.
+
+## Why There Is No `agents/openai.yaml`
+
+The skill is intended to be portable across agent runtimes. It keeps the common skill entry point, references, and scripts, but does not include OpenAI/Codex-specific UI metadata such as `agents/openai.yaml`.
+
+The `.agents/skills/misra-cpp-2023/` path is only the local repository layout used while authoring. Consumers can copy the `misra-cpp-2023` folder into the skill directory used by their agent runtime.
 
 ## Contents
 
-- `.agents/skills/misra-cpp-2023/SKILL.md` - skill entry point.
+- `.agents/skills/misra-cpp-2023/SKILL.md` - generic skill entry point.
 - `.agents/skills/misra-cpp-2023/references/` - review workflow, coding guidance, tooling notes, and compact rule index.
 - `.agents/skills/misra-cpp-2023/scripts/scan_cpp_misra.py` - heuristic C++ safety scanner.
 - `.agents/skills/misra-cpp-2023/scripts/extract_rule_index.py` - local rule-index generator.
@@ -27,5 +37,6 @@ This repository intentionally excludes the MISRA PDF and extracted full text. Us
 
 ```powershell
 python -m unittest discover -s .agents\skills\misra-cpp-2023\scripts\tests -v
-python C:\Users\Administrator\.codex\skills\.system\skill-creator\scripts\quick_validate.py .agents\skills\misra-cpp-2023
 ```
+
+If your agent runtime provides a skill validator, run it against `.agents/skills/misra-cpp-2023`.

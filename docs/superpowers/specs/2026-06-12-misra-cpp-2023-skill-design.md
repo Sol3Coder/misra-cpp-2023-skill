@@ -21,7 +21,8 @@ The skill should include:
 - `SKILL.md`: short trigger and workflow guidance.
 - `references/`: searchable reference notes and rule index derived from authorized local extraction.
 - `scripts/`: deterministic helper tools for project scanning and report generation.
-- `agents/openai.yaml`: UI metadata for Codex skill discovery.
+
+The skill should not include agent-runtime-specific UI metadata such as `agents/openai.yaml`; it is intended to remain portable across agent runtimes.
 
 ## Behavior
 
