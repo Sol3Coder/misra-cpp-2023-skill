@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import Sequence
 
 
-ENTRY_RE = re.compile(r"^\s*(Rule|Dir)\s+([0-9]+\.[0-9]+(?:\.[0-9]+)?)\s+(.+?)\s*$")
+ENTRY_RE = re.compile(r"^\s*(Rule|Dir)\s+([0-9]+\.[0-9]+(?:\.[0-9]+)?)(?:\s+(.+?))?\s*$")
 CATEGORY_RE = re.compile(r"^\s*Category\s+(Mandatory|Required|Advisory)\s*$")
 ANALYSIS_RE = re.compile(r"^\s*Analysis\s+(.+?)\s*$")
 
@@ -33,7 +33,7 @@ def normalize_space(value: str) -> str:
 
 
 def collect_entries(text: str) -> list[Entry]:
-    entries: list[Entry] = []
+    candidates: list[Entry] = []
     current: Entry | None = None
     title_continuation = False
 
@@ -42,9 +42,9 @@ def collect_entries(text: str) -> list[Entry]:
         match = ENTRY_RE.match(line)
         if match:
             kind, number, title = match.groups()
-            title = normalize_space(title)
+            title = normalize_space(title or "")
             current = Entry(kind=kind, number=number, line=idx + 1)
-            entries.append(current)
+            candidates.append(current)
             title_continuation = len(title) < 12 or not title.endswith((".", "?", ")"))
             continue
 
@@ -65,6 +65,11 @@ def collect_entries(text: str) -> list[Entry]:
                 current.analysis = normalize_space(analysis.group(1))
                 continue
 
+    entries = [
+        entry
+        for entry in candidates
+        if entry.category or entry.kind == "Dir"
+    ]
     return dedupe(entries)
 
 
@@ -75,6 +80,8 @@ def dedupe(entries: Sequence[Entry]) -> list[Entry]:
         if existing is None:
             result[entry.identifier] = entry
             continue
+        if entry.category and not existing.category:
+            existing.line = entry.line
         if entry.category and not existing.category:
             existing.category = entry.category
         if entry.analysis and not existing.analysis:

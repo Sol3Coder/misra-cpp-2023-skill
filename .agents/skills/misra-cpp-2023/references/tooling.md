@@ -29,7 +29,7 @@ Default behavior returns exit code `1` for major or blocker findings.
 Generate a compact identifier index from extracted text:
 
 ```powershell
-python F:\skills\misra\.agents\skills\misra-cpp-2023\scripts\extract_rule_index.py F:\skills\misra\work\misra-cpp-2023.txt F:\skills\misra\.agents\skills\misra-cpp-2023\references\rule-index.md
+python F:\skills\misra\.agents\skills\misra-cpp-2023\scripts\extract_rule_index.py F:\skills\misra\docs\source-material\misra-cpp-2023.txt F:\skills\misra\.agents\skills\misra-cpp-2023\references\rule-index.md
 ```
 
 The index intentionally omits full rule wording. Use the licensed source document for details.
@@ -45,3 +45,5 @@ Use project-approved tools when present:
 - Existing CI reports.
 
 When a tool requires a compilation database, look for `compile_commands.json` or ask how the project is built.
+
+Make sure analysis tools receive the same macro definitions, include paths, target options, and compiler mode as the production build. Conditional compilation and generated code can otherwise hide reviewed behavior.

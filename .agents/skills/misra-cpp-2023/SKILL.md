@@ -13,7 +13,7 @@ Do not claim full MISRA compliance from this skill alone. A compliance claim req
 
 ## Workflow
 
-1. Identify scope: files changed or project root, C++ standard, compiler, build system, target platform, and whether exceptions/RTTI/dynamic allocation are allowed.
+1. Identify scope: files changed or project root, C++ standard, compiler, build system, target platform, preprocessing macros, generated-code boundaries, and whether exceptions/RTTI/dynamic allocation are allowed.
 2. Load the relevant reference:
    - Existing project review: `references/review-workflow.md`
    - New or modified C++ code: `references/coding-guidance.md`
@@ -26,14 +26,18 @@ Do not claim full MISRA compliance from this skill alone. A compliance claim req
 python .agents\skills\misra-cpp-2023\scripts\scan_cpp_misra.py <project-or-file> --format markdown
 ```
 
-5. Fix blocker and major findings before completion unless the user explicitly asks for a report only.
-6. Record remaining findings as deviations or manual-review items with file, line, rationale, and proposed mitigation.
+5. Treat categories strictly: mandatory findings cannot be deviated, required findings need formal deviations if retained, advisory findings need documented justification if not followed, and disapplied guidelines must be project-documented.
+6. Fix blocker and major findings before completion unless the user explicitly asks for a report only.
+7. Record remaining findings as deviations or manual-review items with file, line, rationale, analysis scope, and proposed mitigation.
 
 ## Enforcement
 
 - For generated or edited C++ code, prefer C++17, deterministic control flow, RAII, fixed ownership, bounded resources, explicit initialization, and narrow interfaces.
 - Avoid dynamic allocation, raw owning pointers, C-style casts, `reinterpret_cast`, `const_cast`, unsafe C library calls, recursion, global mutable state, function-like macros, inline assembly, `goto`, `setjmp`/`longjmp`, and unreviewed `volatile`.
 - If a project profile allows an otherwise risky feature, document that profile before using it.
+- Apply guidelines to preprocessed translation units; make command-line, compiler, and build-system macros visible to tools.
+- Review classes, fully instantiated templates, implicitly generated special member functions, and automatically generated code rather than only hand-written `.cpp` files.
+- For system-scope or undecidable rules, require whole-project evidence or explicit manual review; absence of a diagnostic is not enough.
 - If tooling and heuristics disagree, treat the stricter result as the next review item until resolved.
 - If the requested implementation conflicts with a safety rule, explain the conflict and propose a compliant design.
 
@@ -46,7 +50,7 @@ Return findings ordered by severity:
 - `minor`: improve when touching nearby code.
 - `manual-review`: needs human or project-tool confirmation.
 
-For each finding include: file, line, risk, relevant rule identifier when known, recommended fix, and whether it was verified by tooling or heuristic scan.
+For each finding include: file, line, risk, relevant rule identifier when known, category, decidability/scope when known, recommended fix, and whether it was verified by tooling or heuristic scan.
 
 ## Copyright Boundary
 

@@ -7,8 +7,9 @@ Use this workflow when asked to review a C++ repository, module, pull request, o
 1. Identify the review target and list C++ source/header files.
 2. Identify build system: CMake, Make, Bazel, Visual Studio, vendor IDE, or custom scripts.
 3. Identify configured C++ standard and target compiler.
-4. Check whether the project has a safety profile covering exceptions, RTTI, dynamic allocation, recursion, concurrency, interrupts, volatile, hardware access, and deviations.
-5. Check whether static-analysis outputs already exist. Prefer project-approved MISRA tools over heuristics.
+4. Identify all macro definitions that affect conditional compilation, including compiler built-ins and command-line definitions.
+5. Check whether the project has a safety profile covering exceptions, RTTI, dynamic allocation, recursion, concurrency, interrupts, volatile, hardware access, generated code, and deviations.
+6. Check whether static-analysis outputs already exist. Prefer project-approved MISRA tools over heuristics.
 
 ## Minimum Gate
 
@@ -40,7 +41,24 @@ Prioritize:
 - Use of C library, raw memory, string, locale, I/O, and environment functions.
 - Error handling profile: exceptions, return codes, assertions, fail-safe behavior.
 - Header hygiene, ODR, linkage, namespaces, and ABI boundaries.
+- Conditional compilation and macro-controlled variants.
+- Fully instantiated templates, class/struct semantics, union boundaries, and implicitly generated special member functions.
+- Automatically generated code and model/code-generator responsibilities.
 - Deviations: every retained violation needs rationale, risk analysis, mitigation, and approval owner.
+
+## Category Handling
+
+- Mandatory: no violations and no deviations are acceptable for a compliance claim.
+- Required: violations require formal deviations.
+- Advisory: follow where reasonably practical; if not followed, document the justification.
+- Disapplied: enforce only when the project has not documented disapplication.
+
+## Analysis Limits
+
+- Decidable single-translation-unit findings are the best fit for automated checking.
+- System-scope findings require whole-project or link-set context.
+- Undecidable findings may be false positives or missed by tools; record justifications and manual review outcomes.
+- Directives cannot be fully validated from source code alone and usually require process evidence.
 
 ## Output
 

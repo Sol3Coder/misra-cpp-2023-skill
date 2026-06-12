@@ -3,12 +3,11 @@
 This compact index was generated from the locally extracted PDF text.
 It lists identifiers, categories, analysis metadata, and local source line numbers only; consult the licensed standard for full wording, examples, rationale, and exceptions.
 
-Source text: `work\misra-cpp-2023.txt`
+Source text: `docs\source-material\misra-cpp-2023.txt`
 Entries: 179
 
 | Identifier | Category | Analysis | Source line |
 |---|---|---|---:|
-| Rule 8.2.6 | Required | Decidable, Single Translation Unit | 849 |
 | Rule 0.0.1 | Required | Decidable, Single Translation Unit | 932 |
 | Rule 0.0.2 | Advisory | Undecidable, System | 1092 |
 | Rule 0.1.1 | Advisory | Undecidable, System | 1225 |
@@ -73,6 +72,7 @@ Entries: 179
 | Rule 8.2.3 | Required | Decidable, Single Translation Unit | 6299 |
 | Rule 8.2.4 | Required | Decidable, Single Translation Unit | 6358 |
 | Rule 8.2.5 | Required | Decidable, Single Translation Unit | 6454 |
+| Rule 8.2.6 | Required | Decidable, Single Translation Unit | 6520 |
 | Rule 8.2.7 | Advisory | Decidable, Single Translation Unit | 6576 |
 | Rule 8.2.8 | Required | Decidable, Single Translation Unit | 6611 |
 | Rule 8.2.9 | Required | Decidable, Single Translation Unit | 6665 |

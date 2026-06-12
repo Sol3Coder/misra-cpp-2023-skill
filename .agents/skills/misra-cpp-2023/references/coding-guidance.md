@@ -13,6 +13,9 @@ Choose the safest simple design:
 - Initialize every object explicitly.
 - Use `constexpr`, `enum class`, typed constants, and inline functions instead of macros.
 - Prefer compile-time bounds and clear preconditions.
+- Keep template behavior reviewable after instantiation, not only in the primary template.
+- Make special member functions explicit when default generation would hide ownership, lifetime, or copying behavior.
+- Keep generated code behind a documented generation profile and review the model/configuration as part of the code.
 
 ## Avoid By Default
 
@@ -29,6 +32,8 @@ Avoid these unless the project safety profile explicitly permits them and a devi
 - Global mutable state.
 - Unreviewed `volatile`.
 - Exceptions or RTTI when the project profile bans them.
+- Macro-controlled behavior that is not visible to analysis tools.
+- Reliance on compiler-specific, implementation-defined, unspecified, or conditionally supported behavior without documentation.
 
 ## Safer Patterns
 
@@ -39,6 +44,8 @@ Avoid these unless the project safety profile explicitly permits them and a devi
 - Replace sentinel integer states with scoped enums.
 - Replace unchecked narrowing with explicit range checks.
 - Replace cross-module globals with injected dependencies or immutable configuration.
+- Replace implicit copy/move behavior with deleted, defaulted, or implemented special member functions that state ownership intent.
+- Replace build-variant surprises with documented configuration headers and analysis commands that expose all active macros.
 
 ## Completion Gate
 
@@ -47,5 +54,6 @@ Before finalizing C++ code:
 1. Compile or at least perform a syntax-aware review if no build is available.
 2. Run relevant tests.
 3. Run the bundled heuristic scanner on changed files or project root.
-4. Explain remaining warnings, deviations, and manual-review items.
-5. Confirm no blocker or major scanner findings remain unless the user asked for report-only work.
+4. Confirm templates, generated code, and macro-selected code paths were included in the review scope or listed as gaps.
+5. Explain remaining warnings, deviations, and manual-review items.
+6. Confirm no blocker or major scanner findings remain unless the user asked for report-only work.
